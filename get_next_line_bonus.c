@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 16:10:34 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 13:33:53 by haseo            ###   ########.fr       */
+/*   Created: 2021/02/02 14:31:25 by haseo             #+#    #+#             */
+/*   Updated: 2021/02/02 16:00:14 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int		nl_in_backup(const char *backup)
 {
@@ -60,7 +60,7 @@ static int		 split_remainder(char **backup, char **line)
 int				get_next_line(int fd, char **line)
 {
 	char			buf[BUFFER_SIZE + 1];
-	static char 	*backup;
+	static char 	*backup[OPEN_MAX];
 	ssize_t			read_size;
 	int				idx_nl;
 
@@ -69,12 +69,12 @@ int				get_next_line(int fd, char **line)
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[read_size] = '\0';				//BUFFER_SIZE를 초과하는 값을 담지 않기 위함.
-		backup = ft_strjoin(backup, buf);
-		if ((idx_nl = nl_in_backup(backup)) >= 0)
+		backup[fd] = ft_strjoin(backup[fd], buf);
+		if ((idx_nl = nl_in_backup(backup[fd])) >= 0)
 		{
-			split_backup(&backup, line, idx_nl);
+			split_backup(&backup[fd], line, idx_nl);
 			return (1);
 		}
 	}
-	return(split_remainder(&backup, line));
+	return(split_remainder(&backup[fd], line));
 }
