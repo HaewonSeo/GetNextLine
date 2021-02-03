@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:10:34 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 20:31:51 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/04 04:17:56 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int				get_next_line(int fd, char **line)
 			return (1);
 		}
 	}
+	if (read_size == -1)
+		return (-1);
 	return (split_remainder(&backup, line));
 }
