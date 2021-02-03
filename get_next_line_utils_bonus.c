@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:29:56 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 14:32:03 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 19:58:05 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,27 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strjoin(char *s1, const char *s2)
 {
-	char *str;
-	size_t 	i;
+	char	*str;
+	size_t	len_s1;
+	size_t	len_s2;
+	size_t	i;
 
 	if (!s1 && !s2)
 		return (NULL);
 	else if (!s1)
 		return(ft_strdup(s2));
-	if (!(str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char))))
+	else if (!s2)
+		return(ft_strdup(s1));
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	if (!(str = malloc((len_s1 + len_s2 + 1) * sizeof(char))))
 		return (NULL);
 	i = 0;
-	while (i < (ft_strlen(s1) + ft_strlen(s2) + 1))
+	while (i < (len_s1 + len_s2 + 1))
 		str[i++] = 0;
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	ft_strlcat(str, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	ft_strlcpy(str, s1, len_s1 + 1);
+	ft_strlcat(str, s2, len_s1 + len_s2 + 1);
 	free(s1);
 	return (str);
 }
+

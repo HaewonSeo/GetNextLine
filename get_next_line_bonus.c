@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:31:25 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 16:00:14 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 15:15:54 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ int				get_next_line(int fd, char **line)
 	ssize_t			read_size;
 	int				idx_nl;
 
-	if ((fd < 0) || (fd > OPEN_MAX) || (!line) || (BUFFER_SIZE < 0))
+	if ((fd < 0) || (fd > OPEN_MAX) || (!line) || (BUFFER_SIZE <= 0))
 		return (-1);
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		buf[read_size] = '\0';				//BUFFER_SIZE를 초과하는 값을 담지 않기 위함.
+		buf[read_size] = '\0';
 		backup[fd] = ft_strjoin(backup[fd], buf);
 		if ((idx_nl = nl_in_backup(backup[fd])) >= 0)
 		{

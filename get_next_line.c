@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:10:34 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 13:33:53 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 19:57:39 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void		split_backup(char **backup, char **line, int idx_nl)
 {
 	char *tmp;
 
-	(*backup)[idx_nl] = '\0';							// split the backup
-	*line = ft_strdup(*backup);							// get a line
+	(*backup)[idx_nl] = '\0';
+	*line = ft_strdup(*backup);
 	tmp = ft_strdup(&(*backup)[idx_nl + 1]);
 	free(*backup);
 	*backup = tmp;
@@ -64,11 +64,11 @@ int				get_next_line(int fd, char **line)
 	ssize_t			read_size;
 	int				idx_nl;
 
-	if ((fd < 0) || (fd > OPEN_MAX) || (!line) || (BUFFER_SIZE < 0))
+	if ((fd < 0) || (fd > OPEN_MAX) || (!line) || (BUFFER_SIZE <= 0))
 		return (-1);
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		buf[read_size] = '\0';				//BUFFER_SIZE를 초과하는 값을 담지 않기 위함.
+		buf[read_size] = '\0';
 		backup = ft_strjoin(backup, buf);
 		if ((idx_nl = nl_in_backup(backup)) >= 0)
 		{

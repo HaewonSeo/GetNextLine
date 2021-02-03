@@ -6,25 +6,23 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:11:17 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 14:30:27 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:06:01 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <unistd.h>
+# include <stdlib.h>
+
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 32
 #endif
 
 #ifndef OPEN_MAX
-# define OPEN_MAX 32
+# define OPEN_MAX 256
 #endif
-
-# include <unistd.h>
-# include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
 
 int		get_next_line(int fd, char **line);
 char	*ft_strdup(const char *str);

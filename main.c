@@ -6,11 +6,13 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:33:21 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/02 01:30:06 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:03:52 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
 
 int	main()
 {
