@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:31:06 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 22:17:26 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 22:34:06 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 # ifndef OPEN_MAX
-#  define OPEN_MAX 256
+#  define OPEN_MAX 10240
 # endif
 
 int		get_next_line(int fd, char **line);
