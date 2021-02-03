@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:10:34 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 19:57:39 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:31:51 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static void		split_backup(char **backup, char **line, int idx_nl)
 	*backup = tmp;
 }
 
-static int		 split_remainder(char **backup, char **line)
+static int		split_remainder(char **backup, char **line)
 {
-	int idx_nl;
+	int		idx_nl;
 
-	if(!(*backup))
+	if (!(*backup))
 	{
 		*line = ft_strdup("");
 		return (0);
@@ -60,7 +60,7 @@ static int		 split_remainder(char **backup, char **line)
 int				get_next_line(int fd, char **line)
 {
 	char			buf[BUFFER_SIZE + 1];
-	static char 	*backup;
+	static char		*backup;
 	ssize_t			read_size;
 	int				idx_nl;
 
@@ -76,5 +76,5 @@ int				get_next_line(int fd, char **line)
 			return (1);
 		}
 	}
-	return(split_remainder(&backup, line));
+	return (split_remainder(&backup, line));
 }

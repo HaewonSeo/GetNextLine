@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:31:25 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 15:15:54 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:34:15 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ static void		split_backup(char **backup, char **line, int idx_nl)
 {
 	char *tmp;
 
-	(*backup)[idx_nl] = '\0';							// split the backup
-	*line = ft_strdup(*backup);							// get a line
+	(*backup)[idx_nl] = '\0';
+	*line = ft_strdup(*backup);
 	tmp = ft_strdup(&(*backup)[idx_nl + 1]);
 	free(*backup);
 	*backup = tmp;
 }
 
-static int		 split_remainder(char **backup, char **line)
+static int		split_remainder(char **backup, char **line)
 {
-	int idx_nl;
+	int		idx_nl;
 
-	if(!(*backup))
+	if (!(*backup))
 	{
 		*line = ft_strdup("");
 		return (0);
@@ -60,7 +60,7 @@ static int		 split_remainder(char **backup, char **line)
 int				get_next_line(int fd, char **line)
 {
 	char			buf[BUFFER_SIZE + 1];
-	static char 	*backup[OPEN_MAX];
+	static char		*backup[OPEN_MAX];
 	ssize_t			read_size;
 	int				idx_nl;
 
@@ -76,5 +76,5 @@ int				get_next_line(int fd, char **line)
 			return (1);
 		}
 	}
-	return(split_remainder(&backup[fd], line));
+	return (split_remainder(&backup[fd], line));
 }

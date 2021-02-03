@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:29:56 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 19:58:05 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:32:34 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ char	*ft_strjoin(char *s1, const char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	else if (!s1)
-		return(ft_strdup(s2));
+		return (ft_strdup(s2));
 	else if (!s2)
-		return(ft_strdup(s1));
+		return (ft_strdup(s1));
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	if (!(str = malloc((len_s1 + len_s2 + 1) * sizeof(char))))
@@ -104,4 +104,3 @@ char	*ft_strjoin(char *s1, const char *s2)
 	free(s1);
 	return (str);
 }
-

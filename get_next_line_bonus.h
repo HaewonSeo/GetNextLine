@@ -6,7 +6,7 @@
 /*   By: haseo <haseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:31:06 by haseo             #+#    #+#             */
-/*   Updated: 2021/02/03 20:05:49 by haseo            ###   ########.fr       */
+/*   Updated: 2021/02/03 20:37:04 by haseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 32
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
-#ifndef OPEN_MAX
-# define OPEN_MAX 256
-#endif
+# ifndef OPEN_MAX
+#  define OPEN_MAX 256
+# endif
 
 int		get_next_line(int fd, char **line);
 char	*ft_strdup(const char *str);
